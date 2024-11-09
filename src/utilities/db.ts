@@ -18,6 +18,7 @@ export const DummyProd = {
   discPrice: "$125.00",
   fullPrice: "$250.00",
   discPerc: "50%",
+  baseImage: prodThumb1
 };
 
 export const ProdDatas = {

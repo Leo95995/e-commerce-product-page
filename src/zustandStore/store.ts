@@ -1,10 +1,20 @@
 import { create } from "zustand";
+import { DummyProd } from "../utilities/interfaces";
 
-interface CartItem {
-    title: string
-    price: number
+
+interface CartState {
+  cartData: DummyProd[];
+  addItem: (item: DummyProd, quantity: number) => void;
+  clearCart: () => void;
 }
 
-export const cartStore = create((set) => ({
-  cart: [] as CartItem[],
+export const cartStore = create<CartState>((set) => ({
+  cartData: [],
+  addItem: (item) =>
+    set((state) => ({
+      cartData: [...state.cartData, item], // aggiunge un nuovo elemento
+    })),
+  clearCart: () => set({ cartData: [] }), // svuota il carrello
 }));
+
+
