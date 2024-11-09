@@ -9,13 +9,13 @@ import { ProdDatas } from "../../utilities/db";
 
 import "../../../node_modules/swiper/swiper.css";
 import "../../../node_modules/swiper/swiper-bundle.css"
-import { BLACK, PRIMARY_GRAY, PURE_WHITE } from "../../utilities/colors";
+import { BLACK, PURE_WHITE } from "../../utilities/colors";
 import React from "react";
 
 const MainImageContainer = styled.div`
   @media (max-width: ${TABLET}) {
     height: auto;
-    width: 100%;
+    border-radius: 20px;
   }
   @media (max-width: ${MOBILE}) {
     height: fit-content;
@@ -48,13 +48,17 @@ const MainImageContainer = styled.div`
 const SliderImagesMobile = styled.img`
 @media(max-width: ${TABLET}){
     width: 100%;
-    max-height:800px;
+    max-height: 700px;
+    border-radius: 5px;
+
 
 }
 @media(max-width: ${MOBILE}){
     width: 100%;
     height:auto ;
     max-height:600px;
+    border-radius: 0px;
+
 }
     
 `

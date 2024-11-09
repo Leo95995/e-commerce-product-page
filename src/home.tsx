@@ -2,7 +2,7 @@ import "../node_modules/swiper/swiper.css";
 import "../node_modules/swiper/swiper-bundle.css";
 import MobileSlider from "./components/Sliders/MobileSlider";
 import styled from "styled-components";
-import { TABLET } from "./utilities/queries";
+import { MOBILE, TABLET } from "./utilities/queries";
 import { DummyProd } from "./utilities/db";
 import {
   CUSTOM_ORANGE,
@@ -26,8 +26,12 @@ const MobileContent = styled.div`
   display: none;
   @media (max-width: ${TABLET}) {
     display: block;
+    padding: 0 180px ;
+  }
+  @media(max-width: ${MOBILE}){
     padding: 0px 0px 20px 0px;
   }
+
   `;
 
 const DesktopContent = styled.div`

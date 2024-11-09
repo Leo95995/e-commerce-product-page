@@ -21,6 +21,7 @@ import AddToCartButton from "../AddToCartButton/addToCart";
 import { cartStore } from "../../zustandStore/store";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { MOBILE, TABLET } from "../../utilities/queries";
 
 const entranceAnimista = keyframes`
   from {
@@ -57,12 +58,21 @@ const MobileCartModal = styled.div`
   width: 92%;
   background-color: transparent;
   height: 300px;
-  left: 0;
-  top: 0;
+
   position: absolute;
   top: 65px;
   z-index: 200;
   padding: 4%;
+  max-width: 450px;
+  top: 50px;
+  right: 0;
+  @media(max-width: ${TABLET}){
+
+  }
+  @media(max-width: ${MOBILE}){
+    right: 0;
+    top: 65px;
+  }
 `;
 
 const CartModalContent = styled.div`
