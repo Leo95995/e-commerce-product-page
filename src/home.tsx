@@ -16,30 +16,26 @@ import React, { useState } from "react";
 import { cartStore } from "./zustandStore/store";
 import cartBlack from "./assets/images/icon-cart-black.svg";
 
-
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const MobileContent = styled.div`
   display: none;
   @media (max-width: ${TABLET}) {
     display: block;
-    padding: 0 180px ;
+    padding: 0 180px;
   }
-  @media(max-width: ${MOBILE}){
+  @media (max-width: ${MOBILE}) {
     padding: 0px 0px 20px 0px;
   }
-
-  `;
+`;
 
 const DesktopContent = styled.div`
   display: block;
   @media (max-width: ${TABLET}) {
     display: none;
   }
-  `;
+`;
 
 const Pretitle = styled.h4`
   color: ${PRIMARY_GRAY};
@@ -56,12 +52,12 @@ const TitleText = styled.h2`
   font-size: 28px;
   padding: 0;
   margin: 0;
-  `;
+`;
 
 const PriceContent = styled.div`
   display: flex;
   justify-content: space-between;
-  `;
+`;
 
 const Contentful = styled.span`
   display: flex;
@@ -74,7 +70,7 @@ const Contentful = styled.span`
   color: ${PURE_WHITE};
   font-weight: 600;
   margin-bottom: 20px;
-  `;
+`;
 
 const customStyle: React.CSSProperties = {
   marginTop: "20px",
@@ -86,10 +82,10 @@ const customStyle: React.CSSProperties = {
 const Home: React.FC = () => {
   const cart = cartStore((state: any) => state.cartData);
   const AddItem = cartStore((state: any) => state.addItem);
-  const sweetAlert = withReactContent(Swal)
-  
+  const sweetAlert = withReactContent(Swal);
+
   const [quantity, setQuantity] = useState<number>(0);
-  
+
   const addToCart = (prod: any, quant: number) => {
     console.log(prod, quant);
     for (let x = 0; x < quant; x++) {
@@ -98,12 +94,10 @@ const Home: React.FC = () => {
     sweetAlert.fire({
       title: <p>Item added</p>,
       timer: 1000,
-      icon:'success',
-      confirmButtonColor: CUSTOM_ORANGE
-    })
-    
+      icon: "success",
+      confirmButtonColor: CUSTOM_ORANGE,
+    });
   };
-
 
   return (
     <>
@@ -155,7 +149,9 @@ const Home: React.FC = () => {
               </p>
             </div>
           </PriceContent>
-          <CustomizedInput increments={{quant: quantity, setQuant:setQuantity}} />
+          <CustomizedInput
+            increments={{ quant: quantity, setQuant: setQuantity }}
+          />
           <AddToCartButton
             action={() => addToCart(DummyProd, quantity)}
             icon={cartBlack}
