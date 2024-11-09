@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { ISection } from "../../utilities/interfaces";
 // Colors
-import { FAKE_BLACK, PRIMARY_GRAY, PURE_WHITE } from "../../utilities/colors";
+import { FAKE_BLACK, FAKE_WHITE, PRIMARY_GRAY, PURE_WHITE } from "../../utilities/colors";
 
 // Assets
 import profilePic from "../../assets/images/image-avatar.png";
@@ -43,17 +43,43 @@ const CustomLink = styled.a`
 }
 `
 
+const MobileCartModal = styled.div`
+  width: 92%;
+  background-color: transparent;
+  height: 300px;
+  left: 0;
+  top: 0;
+  position:absolute; 
+  top: 65px;
+  z-index: 200;
+  padding:4%;
+`
 
+const CartModalContent = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${PURE_WHITE};
+  z-index: 200;
+  border-radius: 8px;
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.4);
+`
+const CartVal  =styled.span`
+  position: absolute;
+  top: -12px;
+  right: -6px;
+`
 
 interface IHamburger {
   datas: any;
+  cartData:any
 }
 
-const HamburgerMenu: React.FC<IHamburger> = ({ datas }) => {
+const HamburgerMenu: React.FC<IHamburger> = ({ datas, cartData }) => {
   const [status, setStatus] = useState<boolean>(false);
+  const [cartModal, setCartModal] = useState<boolean>(false)
+
   return (
     <>
-     {/* Nav here */}
         <div
           style={{
             display: "flex",
@@ -72,7 +98,17 @@ const HamburgerMenu: React.FC<IHamburger> = ({ datas }) => {
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center" , gap:'25px'}}>
-            <img src={cart} style={{ height: "24px", width: "24px" }}></img>
+            <div style={{position:'relative'}}>
+              <CartVal>{cartData.length ? cartData.length: 0}</CartVal>
+            <img src={cart} onClick={()=>setCartModal((prev)=> !prev)} style={{ height: "24px", width: "24px" }}></img>
+            </div>
+            {cartModal && <MobileCartModal>
+              <CartModalContent>
+              <div style={{height:"30%",borderBottom:`3px solid ${FAKE_WHITE}` , padding: '10px 24px'}}>
+                <h5>Cart</h5>
+              </div>
+              </CartModalContent>
+            </MobileCartModal>}
             <img
               src={profilePic}
               style={{ height: "28px", width: "28px" }}
