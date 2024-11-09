@@ -3,13 +3,15 @@ import Home from "./home"
 import NavBar from "./components/NavBar/navBar"
 // Styled Components
 import styled from "styled-components"
-import { MOBILE } from "./utilities/queries"
+import { MOBILE, TABLET } from "./utilities/queries"
 
 
 const AppWrapper = styled.div`
-  /* @media(max-width: ${MOBILE}){
-padding: 0px 20px;
-  } */
+
+padding: 0 8%;
+@media(max-width: ${TABLET}) {
+  padding: 0;
+}
 
 
 `

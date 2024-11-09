@@ -160,6 +160,9 @@ const Home: React.FC = () => {
           />
         </div>
       </MobileContent>
+      <DesktopContent>
+        
+      </DesktopContent>
     </>
   );
 };

@@ -12,6 +12,7 @@ import "../../../node_modules/swiper/swiper-bundle.css"
 import { BLACK, PURE_WHITE } from "../../utilities/colors";
 import React from "react";
 
+
 const MainImageContainer = styled.div`
   @media (max-width: ${TABLET}) {
     height: auto;
