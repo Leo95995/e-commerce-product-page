@@ -6,7 +6,7 @@ import { cartStore } from "../../zustandStore/store";
 import profilePic from "../../assets/images/image-avatar.png";
 import cartIcon from "../../assets/images/icon-cart.svg";
 import logo from "../../assets/images/logo.svg";
-import { CUSTOM_ORANGE, FAKE_WHITE, PRIMARY_GRAY } from "../../utilities/colors";
+import { BLACK, CUSTOM_ORANGE, FAKE_WHITE, PRIMARY_GRAY } from "../../utilities/colors";
 import { useState } from "react";
 import CartModal from "../CartModal/cartModal";
 
@@ -68,12 +68,12 @@ const NavBar: React.FC = () => {
         </MobileLayout>
 
         <DesktopLayout>
-          <NavDeskWrap>
+          <NavDeskWrap> 
             <div style={{display:'flex', alignItems:'center'}}>
-            <img src={logo} alt="logo" />
+            <img src={logo} style={{padding:'0px 0px 15px 0px'}} alt="logo" />
             <ul style={{ display: "flex", gap: "20px" , listStyleType:'none', margin:"0px"}}>
               {sectionList.map((section, index ) => {
-                return <li onClick={()=> setActiveSection(index)} style={{margin:"0px", textTransform:'capitalize',padding:'32px 0px 40px 0px', transition:'all 100ms ease-in' ,borderBottom: activeSection=== index ? `4px solid ${CUSTOM_ORANGE}`: '4px solid transparent' }}><a style={{color:PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
+                return <li onClick={()=> setActiveSection(index)} style={{margin:"0px", textTransform:'capitalize',padding:'32px 0px 40px 0px', transition:'all 100ms ease-in' ,borderBottom: activeSection=== index ? `4px solid ${CUSTOM_ORANGE}`: '4px solid transparent' }}><a style={{color: activeSection == index ? BLACK :PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
               })}
             </ul>
             </div>

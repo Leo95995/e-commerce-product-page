@@ -257,10 +257,12 @@ const HamburgerMenu: React.FC<IHamburger> = ({ datas, cartData }) => {
                       fontWeight: "600",
                       display: "flex",
                       alignItems: "center",
-                      padding: "10px 24px",
+                      justifyContent:'center',
+                      padding: "20px 0px",
+                      color:PRIMARY_GRAY,
                     }}
                   >
-                    Cart is actually empty. Add something to it
+                   Cart empty
                   </p>
                 )}
               </CartModalContent>

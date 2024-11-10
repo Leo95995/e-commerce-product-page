@@ -12,6 +12,7 @@ import {
 // Assets
 
 import cart from "../../assets/images/icon-cart.svg";
+import cartBlack from "../../assets/images/icon-cart-black.svg";
 import trash from "../../assets/images/icon-delete.svg";
 import AddToCartButton from "../AddToCartButton/addToCart";
 import { cartStore } from "../../zustandStore/store";
@@ -88,9 +89,9 @@ const CartModal: React.FC<IHamburger> = ({  cartData }) => {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "25px" }}>
           <div style={{ position: "relative" }}>
-            <CartVal>{cartData.length}</CartVal>
+            {cartData.length > 0 && <CartVal>{cartData.length }</CartVal>}
             <img
-              src={cart}
+              src={cartModal ? cartBlack : cart}
               onClick={() => setCartModal((prev) => !prev)}
               style={{ height: "24px", width: "24px" }}
             ></img>
@@ -192,10 +193,12 @@ const CartModal: React.FC<IHamburger> = ({  cartData }) => {
                       fontWeight: "600",
                       display: "flex",
                       alignItems: "center",
-                      padding: "10px 24px",
+                      padding: "30px 0px",
+                      color: PRIMARY_GRAY,
+                      justifyContent:'center'
                     }}
                   >
-                    Cart is actually empty. Add something to it
+           Your cart is Empty.
                   </p>
                 )}
               </CartModalContent>
