@@ -71,9 +71,9 @@ const NavBar: React.FC = () => {
           <NavDeskWrap>
             <div style={{display:'flex', alignItems:'center'}}>
             <img src={logo} alt="logo" />
-            <ul style={{ display: "flex", gap: "20px" , listStyleType:'none'}}>
+            <ul style={{ display: "flex", gap: "20px" , listStyleType:'none', margin:"0px"}}>
               {sectionList.map((section, index ) => {
-                return <li onClick={()=> setActiveSection(index)} style={{textTransform:'capitalize',padding:'32px 0px', transition:'all 100ms ease-in' ,borderBottom: activeSection=== index ? `4px solid ${CUSTOM_ORANGE}`: '4px solid transparent' }}><a style={{color:PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
+                return <li onClick={()=> setActiveSection(index)} style={{margin:"0px", textTransform:'capitalize',padding:'32px 0px 40px 0px', transition:'all 100ms ease-in' ,borderBottom: activeSection=== index ? `4px solid ${CUSTOM_ORANGE}`: '4px solid transparent' }}><a style={{color:PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
               })}
             </ul>
             </div>

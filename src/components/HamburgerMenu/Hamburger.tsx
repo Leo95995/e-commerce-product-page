@@ -33,6 +33,23 @@ const entranceAnimista = keyframes`
 
 `;
 
+
+const ProfilePic = styled.img`
+border: 3px solid transparent;
+height: 30px;
+width: auto;
+&:hover{
+  cursor: pointer;
+  border: 3px solid ${CUSTOM_ORANGE};
+  border-radius: 50%;
+}
+&:active{
+  cursor: pointer;
+  border: 3px solid ${CUSTOM_ORANGE};
+  border-radius: 50%;
+}
+  
+`
 const MenuCustom = styled.div`
   z-index: 51;
   position: absolute;
@@ -249,7 +266,7 @@ const HamburgerMenu: React.FC<IHamburger> = ({ datas, cartData }) => {
               </CartModalContent>
             </MobileCartModal>
           )}
-          <img src={profilePic} style={{ height: "28px", width: "28px" }}></img>
+          <ProfilePic src={profilePic} style={{ height: "28px", width: "28px" }}></ProfilePic>
         </div>
       </div>
       {status && (
