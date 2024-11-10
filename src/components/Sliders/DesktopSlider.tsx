@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ProdDatas } from "../../utilities/db";
 import "../../../node_modules/swiper/swiper.css";
 import "../../../node_modules/swiper/swiper-bundle.css";
-import { CUSTOM_ORANGE } from "../../utilities/colors";
+import { BLACK, CUSTOM_ORANGE, PURE_WHITE } from "../../utilities/colors";
 import React, { useState, useRef } from "react";
-import closeIcon from '../../assets/images/icon-close-thumbnails.svg'
+import closeIcon from "../../assets/images/icon-close-thumbnails.svg";
 
 const MainImageContainer = styled.div`
   border-radius: 20px;
@@ -16,11 +16,11 @@ const MainImageContainer = styled.div`
 `;
 
 const CustomCloser = styled.img`
-    &:hover{
-        transform: scale(1.02);
-        cursor: pointer;
-    }
-`
+  &:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+`;
 
 const FixedWrapper = styled.div`
   border-radius: 20px;
@@ -30,6 +30,28 @@ const FixedWrapper = styled.div`
   top: 20%;
   left: 30%;
   z-index: 1000;
+  .swiper-button-next,
+  .swiper-button-prev {
+    height: 20px;
+    z-index: 100;
+    margin: -70px -38px;
+    width: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${PURE_WHITE};
+    border-radius: 50%;
+    &:hover {
+      filter: brightness(0.8);
+    }
+    &::after {
+      font-size: 16px;
+      color: ${BLACK};
+      font-weight: 900;
+      border-width: 2px;
+    }
+  }
 `;
 
 const SliderImagesMobile = styled.img`
@@ -83,8 +105,8 @@ const DesktopSlider: React.FC = () => {
       document.body.style.overflow = "hidden";
       setModalOpen(true);
     } else {
-        setModalOpen(false)
-        document.body.style.overflow = "auto"
+      setModalOpen(false);
+      document.body.style.overflow = "auto";
     }
   };
 
@@ -165,9 +187,19 @@ const DesktopSlider: React.FC = () => {
             }}
           ></div>
           <FixedWrapper>
-            <div style={{ display:'flex', justifyContent:'end', padding:'10px'}}>
-        <CustomCloser onClick={()=> HandleModalOpen(false)} src={closeIcon} style={{alignSelf:'end', height:"24px"}}/>
-        </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                padding: "10px",
+              }}
+            >
+              <CustomCloser
+                onClick={() => HandleModalOpen(false)}
+                src={closeIcon}
+                style={{ alignSelf: "end", height: "24px" }}
+              />
+            </div>
             <Swiper
               style={{
                 borderRadius: "20px",
@@ -199,6 +231,8 @@ const DesktopSlider: React.FC = () => {
                 paddingTop: "30px",
               }}
             >
+              <div className="swiper-button-prev"></div>
+              <div className="swiper-button-next"></div>
               {ProdDatas.prodThumbs.map((thumb, index) => (
                 <ThumbsContainer
                   key={index}
