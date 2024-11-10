@@ -6,14 +6,19 @@ import { cartStore } from "../../zustandStore/store";
 import profilePic from "../../assets/images/image-avatar.png";
 import cartIcon from "../../assets/images/icon-cart.svg";
 import logo from "../../assets/images/logo.svg";
-import { PRIMARY_GRAY } from "../../utilities/colors";
+import { CUSTOM_ORANGE, FAKE_WHITE, PRIMARY_GRAY } from "../../utilities/colors";
+import { useState } from "react";
 
 const NavWrapper = styled.div`
   width: 100%;
-  height: 68px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 120px;
+  @media(max-width: ${TABLET}){
+  height: 68px;
+  }
+
 `;
 
 const MobileLayout = styled.div`
@@ -32,13 +37,15 @@ const DesktopLayout = styled.div`
 const NavDeskWrap = styled.div`
   display: flex;
   width: 100%;
-  border: 1px solid red;
+  border-bottom: 2px solid ${FAKE_WHITE};
+  height: 100%;
   align-items: center;
   justify-content: space-between;
 `;
 
 const NavBar: React.FC = () => {
   const cart = cartStore((state: any) => state.cartData);
+  const [activeSection , setActiveSection ] = useState<number>()
 
   return (
     <>
@@ -52,8 +59,8 @@ const NavBar: React.FC = () => {
             <div style={{display:'flex', alignItems:'center'}}>
             <img src={logo} alt="logo" />
             <ul style={{ display: "flex", gap: "20px" , listStyleType:'none'}}>
-              {sectionList.map((section) => {
-                return <li style={{textTransform:'capitalize'}}><a style={{color:PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
+              {sectionList.map((section, index ) => {
+                return <li onClick={()=> setActiveSection(index)} style={{textTransform:'capitalize',padding:'32px 0px', transition:'all 100ms ease-in' ,borderBottom: activeSection=== index ? `4px solid ${CUSTOM_ORANGE}`: '4px solid transparent' }}><a style={{color:PRIMARY_GRAY, fontSize:"15px"}} href={section.link}>{section.title}</a></li>;
               })}
             </ul>
             </div>

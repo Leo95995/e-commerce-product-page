@@ -18,6 +18,7 @@ import cartBlack from "./assets/images/icon-cart-black.svg";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import DesktopSlider from "./components/Sliders/DesktopSlider";
 
 const MobileContent = styled.div`
   display: none;
@@ -161,7 +162,14 @@ const Home: React.FC = () => {
         </div>
       </MobileContent>
       <DesktopContent>
-        
+        <div style={{width: '100%', minHeight: "80vh", position:'relative', marginTop: "91px", display:'flex'}}>
+         <div style={{width:'45%', height:'auto', padding:"0 5%"}}> 
+            <DesktopSlider/>
+         </div>
+         <div style={{width:"50%", backgroundColor:'navajowhite', height:'auto'}}>
+          s
+         </div>
+        </div>
       </DesktopContent>
     </>
   );
