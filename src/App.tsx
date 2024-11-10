@@ -22,7 +22,7 @@ function App() {
     <>
     <AppWrapper>
     <NavBar/>
-    <Home></Home>
+    <Home/>
     </AppWrapper>
     </>
   )

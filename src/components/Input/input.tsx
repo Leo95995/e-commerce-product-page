@@ -1,8 +1,8 @@
 import plus from "../../assets/images/icon-plus.svg";
 import minus from "../../assets/images/icon-minus.svg";
 import styled from "styled-components";
-import { useState } from "react";
 import { FAKE_WHITE } from "../../utilities/colors";
+import { TABLET } from "../../utilities/queries";
 
 const StyledInput = styled.input`
   width: 60%;
@@ -20,15 +20,20 @@ const StyledInput = styled.input`
 `;
 
 const InputContainer = styled.div`
+
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 56px;
-  border-radius: 4px;
+  border-radius: 12px;
   background-color: ${FAKE_WHITE};
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
+  @media (max-width: ${TABLET}) {
+    width: 100%;
+    
+  }
 
   & div:hover > img {
     width: 16px;

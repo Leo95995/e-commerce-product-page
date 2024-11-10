@@ -8,6 +8,7 @@ import cartIcon from "../../assets/images/icon-cart.svg";
 import logo from "../../assets/images/logo.svg";
 import { CUSTOM_ORANGE, FAKE_WHITE, PRIMARY_GRAY } from "../../utilities/colors";
 import { useState } from "react";
+import CartModal from "../CartModal/cartModal";
 
 const NavWrapper = styled.div`
   width: 100%;
@@ -33,6 +34,18 @@ const DesktopLayout = styled.div`
     display: none;
   }
 `;
+
+const ProfilePic = styled.img`
+border: 3px solid transparent;
+height: 30px;
+width: auto;
+&:hover{
+  cursor: pointer;
+  border: 3px solid ${CUSTOM_ORANGE};
+  border-radius: 50%;
+}
+  
+`
 
 const NavDeskWrap = styled.div`
   display: flex;
@@ -64,12 +77,11 @@ const NavBar: React.FC = () => {
               })}
             </ul>
             </div>
-            <div style={{display:'flex', alignItems:'center', gap:'20px'}}>
-            <img src={cartIcon}></img>
-            <img
+            <div style={{display:'flex', alignItems:'center', gap:'0px'}}>
+            <CartModal cartData={cart}/>
+            <ProfilePic
               src={profilePic}
-              style={{ height: "28px", width: "28px" }}
-            ></img>
+              ></ProfilePic>
             </div>
           </NavDeskWrap>
         </DesktopLayout>

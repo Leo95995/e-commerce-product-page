@@ -80,6 +80,12 @@ const customStyle: React.CSSProperties = {
   borderRadius: "12px",
 };
 
+const customStyleDesk: React.CSSProperties = {
+  background: CUSTOM_ORANGE,
+  border: "none",
+  borderRadius: "12px",
+};
+
 const Home: React.FC = () => {
   const cart = cartStore((state: any) => state.cartData);
   const AddItem = cartStore((state: any) => state.addItem);
@@ -92,12 +98,20 @@ const Home: React.FC = () => {
     for (let x = 0; x < quant; x++) {
       AddItem(prod);
     }
+    if(quant > 0){
     sweetAlert.fire({
       title: <p>Item added</p>,
       timer: 1000,
       icon: "success",
       confirmButtonColor: CUSTOM_ORANGE,
-    });
+    })}else{
+      sweetAlert.fire({
+        title: <p>Please add at least 1 item</p>,
+        timer: 1000,
+        icon: "error",
+        confirmButtonColor: CUSTOM_ORANGE,
+      })
+    }
   };
 
   return (
@@ -162,13 +176,74 @@ const Home: React.FC = () => {
         </div>
       </MobileContent>
       <DesktopContent>
-        <div style={{width: '100%', minHeight: "80vh", position:'relative', marginTop: "91px", display:'flex'}}>
-         <div style={{width:'45%', height:'auto', padding:"0 5%"}}> 
-            <DesktopSlider/>
-         </div>
-         <div style={{width:"50%", backgroundColor:'navajowhite', height:'auto'}}>
-          s
-         </div>
+        <div
+          style={{
+            width: "100%",
+            minHeight: "80vh",
+            position: "relative",
+            marginTop: "91px",
+            display: "flex",
+          }}
+        >
+          <div style={{ width: "44%", height: "auto", padding: "0 3%" }}>
+            <DesktopSlider />
+          </div>
+          <div
+            style={{
+              width: "46%",
+              padding:'0 2%',
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "20px 20px",
+                gap:'5px'
+              }}
+            >
+              <Pretitle>{DummyProd.text}</Pretitle>
+              <TitleText style={{fontSize:'44px'}}>{DummyProd.title}</TitleText>
+              <p style={{ color: PRIMARY_GRAY, lineHeight: "25px", fontSize:'16px' }}>
+                {DummyProd.description}
+              </p>
+
+              <PriceContent >
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "15px",
+                  }}
+                >
+                  <p style={{ fontSize: "28px", margin: 0, fontWeight: 600 }}>
+                    {DummyProd.discPrice}
+                  </p>
+                  <Contentful>{DummyProd.discPerc}</Contentful>
+                </div>
+              </PriceContent>
+              <p
+                    style={{
+                      textDecoration: "line-through",
+                      margin: 0,
+                      fontWeight: 600,
+                      color: PRIMARY_GRAY,
+                    }}
+                  >
+                    {DummyProd.fullPrice}
+                  </p>
+              <div style={{display:'flex', alignItems:'center', gap:'20px', padding:'20px 0px'}}>
+              <CustomizedInput
+                increments={{ quant: quantity, setQuant: setQuantity }}
+              />
+              <AddToCartButton
+                action={() => addToCart(DummyProd, quantity)}
+                icon={cartBlack}
+                text="Add to cart"
+                additionalStyle={customStyleDesk}
+              />
+              </div>
+            </div>
+          </div>
         </div>
       </DesktopContent>
     </>
