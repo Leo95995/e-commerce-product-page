@@ -87,7 +87,6 @@ const customStyleDesk: React.CSSProperties = {
 };
 
 const Home: React.FC = () => {
-  const cart = cartStore((state: any) => state.cartData);
   const AddItem = cartStore((state: any) => state.addItem);
   const sweetAlert = withReactContent(Swal);
 

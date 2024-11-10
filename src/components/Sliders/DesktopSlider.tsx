@@ -6,7 +6,7 @@ import { ProdDatas } from "../../utilities/db";
 import "../../../node_modules/swiper/swiper.css";
 import "../../../node_modules/swiper/swiper-bundle.css";
 import { BLACK, CUSTOM_ORANGE, PURE_WHITE } from "../../utilities/colors";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import closeIcon from "../../assets/images/icon-close-thumbnails.svg";
 
 const MainImageContainer = styled.div`

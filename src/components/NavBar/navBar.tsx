@@ -4,7 +4,6 @@ import { sectionList } from "../../utilities/db";
 import { TABLET } from "../../utilities/queries";
 import { cartStore } from "../../zustandStore/store";
 import profilePic from "../../assets/images/image-avatar.png";
-import cartIcon from "../../assets/images/icon-cart.svg";
 import logo from "../../assets/images/logo.svg";
 import { BLACK, CUSTOM_ORANGE, FAKE_WHITE, PRIMARY_GRAY } from "../../utilities/colors";
 import { useState } from "react";

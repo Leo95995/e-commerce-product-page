@@ -3,7 +3,7 @@ import Home from "./home"
 import NavBar from "./components/NavBar/navBar"
 // Styled Components
 import styled from "styled-components"
-import { MOBILE, TABLET } from "./utilities/queries"
+import { TABLET } from "./utilities/queries"
 
 
 const AppWrapper = styled.div`

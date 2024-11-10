@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DummyProd, ISection } from "../../utilities/interfaces";
 // Colors
 import {

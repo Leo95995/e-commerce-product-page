@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MOBILE, TABLET } from "../../utilities/queries";
 // Import Swiper React components
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
